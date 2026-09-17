@@ -1,608 +1,3894 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Your description">
-    <meta name="author" content="Your name">
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+    <meta charset="UTF-8">
 
-    <!-- Webpage Title -->
-    <title>Mark Webpage Title</title>
-    
-    <!-- Styles -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/fontawesome-all.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Saif Ur Rehman - Junior Laravel Developer, PHP Web Developer and Software Engineering Student.">
+
+    <meta name="author" content="Saif Ur Rehman">
+
+    <title>Saif Ur Rehman | Laravel Developer</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- =====================================================
+         YOUR ORIGINAL CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
+
+    <style>
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
+        :root {
+
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0f172a;
+            --dark-light: #172033;
+            --text: #334155;
+            --muted: #64748b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+
+        }
+
+
+        /* =====================================================
+           GENERAL
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: 'Plus Jakarta Sans', sans-serif;
+
+            color: var(--text);
+
+            background: var(--white);
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+
+        }
+
+
+        a {
+            text-decoration: none !important;
+        }
+
+
+        img {
+            max-width: 100%;
+        }
+
+
+        .container {
+            max-width: 1140px;
+        }
+
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+
+        .section-heading {
+            margin-bottom: 55px;
+        }
+
+
+        .section-label {
+
+            display: inline-block;
+
+            color: var(--primary);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size: 36px;
+
+            line-height: 1.3;
+
+            color: var(--dark);
+
+            font-weight: 800;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .section-heading p {
+
+            max-width: 650px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
+        .main-navbar {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 9999;
+
+            padding: 22px 0;
+
+            transition: all 0.35s ease;
+
+            background: transparent;
+
+        }
+
+
+        .main-navbar.scrolled {
+
+            background: rgba(15, 23, 42, 0.97);
+
+            padding: 14px 0;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+        .navbar-brand {
+
+            color: #ffffff !important;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+        }
+
+
+        .navbar-brand span {
+            color: #60a5fa;
+        }
+
+
+        .navbar-nav .nav-link {
+
+            color: rgba(255, 255, 255, 0.85) !important;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            padding: 8px 15px !important;
+
+            transition: 0.3s;
+
+        }
+
+
+        .navbar-nav .nav-link:hover {
+
+            color: #ffffff !important;
+
+        }
+
+
+        .nav-social {
+
+            display: flex;
+
+            align-items: center;
+
+            margin-left: 10px;
+
+        }
+
+
+        .nav-social a {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: #ffffff;
+
+            background: rgba(255, 255, 255, 0.10);
+
+            margin-left: 7px;
+
+            font-size: 12px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-social a:hover {
+
+            background: var(--primary);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .navbar-toggler {
+
+            border: none;
+
+            outline: none !important;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .hero {
+
+            min-height: 760px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(circle at 80% 30%,
+                    rgba(37, 99, 235, 0.20),
+                    transparent 35%),
+
+                linear-gradient(135deg,
+                    #0b1120 0%,
+                    #111827 55%,
+                    #172033 100%);
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255, 255, 255, 0.05);
+
+            right: -150px;
+
+            top: 80px;
+
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255, 255, 255, 0.04);
+
+            right: -70px;
+
+            top: 155px;
+
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding-top: 70px;
+
+        }
+
+
+        .hero-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 14px;
+
+            border-radius: 50px;
+
+            background: rgba(37, 99, 235, 0.12);
+
+            border: 1px solid rgba(96, 165, 250, 0.20);
+
+            color: #93c5fd;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .hero-badge span {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+        }
+
+
+        .hero h1 {
+
+            color: #ffffff;
+
+            font-size: 56px;
+
+            line-height: 1.15;
+
+            font-weight: 800;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .hero h1 span {
+
+            color: #60a5fa;
+
+        }
+
+
+        .hero h2 {
+
+            color: #dbeafe;
+
+            font-size: 24px;
+
+            font-weight: 600;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .hero-description {
+
+            color: #94a3b8;
+
+            max-width: 590px;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+        }
+
+
+        .btn-primary-custom {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 14px 23px;
+
+            border-radius: 7px;
+
+            background: var(--primary);
+
+            color: #ffffff !important;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-primary-custom:hover {
+
+            background: var(--primary-dark);
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.30);
+
+        }
+
+
+        .btn-secondary-custom {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 13px 23px;
+
+            border-radius: 7px;
+
+            border: 1px solid rgba(255, 255, 255, 0.20);
+
+            color: #ffffff !important;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-secondary-custom:hover {
+
+            background: #ffffff;
+
+            color: var(--dark) !important;
+
+        }
+
+
+        /* =====================================================
+           HERO IMAGE
+        ====================================================== */
+
+        .hero-image-area {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding-top: 70px;
+
+        }
+
+
+        .hero-image-wrapper {
+
+            position: relative;
+
+            width: 390px;
+
+            height: 390px;
+
+        }
+
+
+        .hero-image-wrapper::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 50%;
+
+            background: rgba(37, 99, 235, 0.10);
+
+            transform: scale(1.08);
+
+        }
+
+
+        .hero-image-wrapper::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(96, 165, 250, 0.25);
+
+            transform: scale(1.17);
+
+        }
+
+
+        .hero-image {
+
+            position: relative;
+
+            z-index: 3;
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            border: 8px solid rgba(255, 255, 255, 0.08);
+
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+
+        }
+
+
+        .floating-card {
+
+            position: absolute;
+
+            z-index: 5;
+
+            bottom: 25px;
+
+            left: -25px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 12px;
+
+            padding: 14px 18px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .floating-icon {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 9px;
+
+            background: #eff6ff;
+
+            color: var(--primary);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        .floating-card strong {
+
+            display: block;
+
+            color: var(--dark);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        .floating-card small {
+
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ====================================================== */
+
+        .about-section {
+
+            background: #ffffff;
+
+        }
+
+
+        .about-card {
+
+            height: 100%;
+
+            padding: 32px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: #ffffff;
+
+            transition: 0.3s;
+
+        }
+
+
+        .about-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.07);
+
+        }
+
+
+        .about-card-icon {
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: #eff6ff;
+
+            color: var(--primary);
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .about-card h4 {
+
+            font-size: 17px;
+
+            color: var(--dark);
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .about-card p {
+
+            font-size: 12px;
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            margin: 0;
+
+        }
+
+
+        .about-text {
+
+            padding-right: 25px;
+
+        }
+
+
+        .about-text h3 {
+
+            color: var(--dark);
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .about-text p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.9;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .education-item {
+
+            position: relative;
+
+            padding-left: 28px;
+
+            padding-bottom: 27px;
+
+            border-left: 1px solid #dbeafe;
+
+        }
+
+
+        .education-item:last-child {
+
+            padding-bottom: 0;
+
+        }
+
+
+        .education-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: -5px;
+
+            top: 3px;
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--primary);
+
+        }
+
+
+        .education-year {
+
+            color: var(--primary);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .education-item h5 {
+
+            color: var(--dark);
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .education-item p {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            margin: 0;
+
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ====================================================== */
+
+        .services-section {
+
+            background: #f8fafc;
+
+        }
+
+
+        .services-row {
+
+            display: flex;
+
+            align-items: stretch;
+
+        }
+
+
+        .service-column {
+
+            display: flex;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .service-card {
+
+            width: 100%;
+
+            min-height: 300px;
+
+            height: 100%;
+
+            padding: 32px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: all 0.35s ease;
+
+        }
+
+
+        .service-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background: var(--primary);
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: 0.35s;
+
+        }
+
+
+        .service-card:hover::before {
+
+            transform: scaleX(1);
+
+        }
+
+
+        .service-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.09);
+
+            border-color: #bfdbfe;
+
+        }
+
+
+        .service-icon {
+
+            width: 58px;
+
+            height: 58px;
+
+            border-radius: 12px;
+
+            background: #eff6ff;
+
+            color: var(--primary);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 23px;
+
+            margin-bottom: 23px;
+
+        }
+
+
+        .service-card h4 {
+
+            color: var(--dark);
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .service-card p {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.9;
+
+            margin: 0;
+
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ====================================================== */
+
+        .skills-section {
+
+            background: #ffffff;
+
+        }
+
+
+        .skill-card {
+
+            height: 100%;
+
+            padding: 30px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: #ffffff;
+
+            transition: 0.3s;
+
+        }
+
+
+        .skill-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+
+        }
+
+
+        .skill-card h4 {
+
+            color: var(--dark);
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .skill {
+
+            margin-bottom: 19px;
+
+        }
+
+
+        .skill:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .skill-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .skill-top span {
+
+            color: var(--text);
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+        }
+
+
+        .skill-bar {
+
+            height: 6px;
+
+            background: #e2e8f0;
+
+            border-radius: 50px;
+
+            overflow: hidden;
+
+        }
+
+
+        .skill-progress {
+
+            height: 100%;
+
+            background: var(--primary);
+
+            border-radius: 50px;
+
+        }
+
+
+        /* =====================================================
+           PROJECTS
+        ====================================================== */
+
+        .projects-section {
+
+            background: #f8fafc;
+
+        }
+
+
+        .project-column {
+
+            display: flex;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .project-card {
+
+            width: 100%;
+
+            height: 100%;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            overflow: hidden;
+
+            transition: 0.35s;
+
+        }
+
+
+        .project-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.10);
+
+        }
+
+
+        .project-image {
+
+            width: 100%;
+
+            height: 280px;
+
+            overflow: hidden;
+
+            background: #e2e8f0;
+
+        }
+
+
+        .project-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+
+        }
+
+
+        .project-card:hover .project-image img {
+
+            transform: scale(1.05);
+
+        }
+
+
+        .project-content {
+
+            padding: 28px;
+
+        }
+
+
+        .project-number {
+
+            color: var(--primary);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .project-content h4 {
+
+            color: var(--dark);
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .project-content p {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .tech-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+        }
+
+
+        .tech-tag {
+
+            padding: 5px 10px;
+
+            background: #eff6ff;
+
+            color: #1d4ed8;
+
+            border-radius: 5px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           WHY ME
+        ====================================================== */
+
+        .why-section {
+
+            background: #ffffff;
+
+        }
+
+
+        .why-card {
+
+            height: 100%;
+
+            padding: 32px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .why-card:hover {
+
+            border-color: #bfdbfe;
+
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+
+        }
+
+
+        .why-icon {
+
+            width: 50px;
+
+            height: 50px;
+
+            background: #eff6ff;
+
+            color: var(--primary);
+
+            border-radius: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 19px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .why-card h4 {
+
+            color: var(--dark);
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .why-card p {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+            margin: 0;
+
+        }
+
+
+        /* =====================================================
+           FAQ
+        ====================================================== */
+
+        .faq-section {
+
+            background: #f8fafc;
+
+        }
+
+
+        .faq-wrapper {
+
+            max-width: 850px;
+
+            margin: auto;
+
+        }
+
+
+        .faq-item {
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            margin-bottom: 12px;
+
+            overflow: hidden;
+
+        }
+
+
+        .faq-question {
+
+            width: 100%;
+
+            background: #ffffff;
+
+            border: none;
+
+            padding: 20px 22px;
+
+            text-align: left;
+
+            color: var(--dark);
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            position: relative;
+
+            padding-right: 50px;
+
+        }
+
+
+        .faq-question::after {
+
+            content: "+";
+
+            position: absolute;
+
+            right: 22px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--primary);
+
+            font-size: 20px;
+
+            font-weight: 400;
+
+        }
+
+
+        .faq-question[aria-expanded="true"]::after {
+
+            content: "−";
+
+        }
+
+
+        .faq-question:focus {
+
+            outline: none;
+
+        }
+
+
+        .faq-answer {
+
+            padding: 0 22px 20px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ====================================================== */
+
+        .contact-section {
+
+            background: #ffffff;
+
+        }
+
+
+        .contact-left {
+
+            padding-right: 35px;
+
+        }
+
+
+        .contact-left h3 {
+
+            color: var(--dark);
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .contact-left>p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.9;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .contact-info-item {
+
+            display: flex;
+
+            align-items: center;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .contact-info-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            background: #eff6ff;
+
+            color: var(--primary);
+
+            border-radius: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin-right: 13px;
+
+        }
+
+
+        .contact-info-item strong {
+
+            display: block;
+
+            color: var(--dark);
+
+            font-size: 11px;
+
+            margin-bottom: 2px;
+
+        }
+
+
+        .contact-info-item span {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        .contact-form {
+
+            background: #f8fafc;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+        }
+
+
+        .contact-form label {
+
+            color: var(--dark);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .contact-form .form-control {
+
+            height: 48px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            background: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            padding: 12px 14px;
+
+            margin-bottom: 17px;
+
+            box-shadow: none;
+
+        }
+
+
+        .contact-form textarea.form-control {
+
+            height: 140px;
+
+            resize: vertical;
+
+        }
+
+
+        .contact-form .form-control:focus {
+
+            border-color: var(--primary);
+
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+
+        }
+
+
+        .contact-submit {
+
+            width: 100%;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: var(--primary);
+
+            color: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .contact-submit:hover {
+
+            background: var(--primary-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .footer {
+
+            background: var(--dark);
+
+            padding: 65px 0 25px;
+
+            text-align: center;
+
+        }
+
+
+        .footer-logo {
+
+            color: #ffffff;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .footer-logo span {
+
+            color: #60a5fa;
+
+        }
+
+
+        .footer p {
+
+            color: #94a3b8;
+
+            font-size: 11px;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .footer-social {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .footer-social a {
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 8px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            color: #ffffff;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .footer-social a:hover {
+
+            background: var(--primary);
+
+            transform: translateY(-3px);
+
+        }
+
+
+        .copyright {
+
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+            padding-top: 22px;
+
+            color: #64748b !important;
+
+            font-size: 10px !important;
+
+            margin: 0 !important;
+
+        }
+
+
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        #backToTop {
+
+            position: fixed;
+
+            right: 22px;
+
+            bottom: 22px;
+
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: var(--primary);
+
+            color: #ffffff;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: 999;
+
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 991px) {
+
+            .main-navbar {
+
+                background: var(--dark);
+
+                padding: 15px 0;
+
+            }
+
+
+            .main-navbar.scrolled {
+
+                padding: 12px 0;
+
+            }
+
+
+            .navbar-collapse {
+
+                margin-top: 15px;
+
+                background: #111827;
+
+                padding: 15px;
+
+                border-radius: 10px;
+
+            }
+
+
+            .navbar-nav .nav-link {
+
+                padding: 9px 5px !important;
+
+            }
+
+
+            .nav-social {
+
+                margin: 10px 0 0;
+
+            }
+
+
+            .hero {
+
+                min-height: auto;
+
+                padding: 150px 0 90px;
+
+            }
+
+
+            .hero-content {
+
+                padding-top: 0;
+
+                text-align: center;
+
+            }
+
+
+            .hero-description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+            }
+
+
+            .hero-buttons {
+
+                justify-content: center;
+
+            }
+
+
+            .hero-image-area {
+
+                padding-top: 80px;
+
+            }
+
+
+            .hero-image-wrapper {
+
+                width: 310px;
+
+                height: 310px;
+
+            }
+
+
+            .about-text {
+
+                padding-right: 0;
+
+                margin-bottom: 45px;
+
+            }
+
+        }
+
+
+        @media (max-width: 767px) {
+
+            .section-padding {
+
+                padding: 70px 0;
+
+            }
+
+
+            .section-heading {
+
+                margin-bottom: 38px;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 28px;
+
+            }
+
+
+            .hero {
+
+                padding: 130px 0 75px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 39px;
+
+                letter-spacing: -1px;
+
+            }
+
+
+            .hero h2 {
+
+                font-size: 19px;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 12px;
+
+            }
+
+
+            .hero-image-wrapper {
+
+                width: 270px;
+
+                height: 270px;
+
+            }
+
+
+            .floating-card {
+
+                left: -5px;
+
+                bottom: 10px;
+
+            }
+
+
+            .service-card {
+
+                min-height: auto;
+
+            }
+
+
+            .project-image {
+
+                height: 230px;
+
+            }
+
+
+            .contact-left {
+
+                padding-right: 0;
+
+                margin-bottom: 35px;
+
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .hero h1 {
+
+                font-size: 33px;
+
+            }
+
+
+            .hero-buttons {
+
+                display: block;
+
+            }
+
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+
+                width: 100%;
+
+                margin-bottom: 10px;
+
+            }
+
+
+            .hero-image-wrapper {
+
+                width: 230px;
+
+                height: 230px;
+
+            }
+
+
+            .floating-card {
+
+                padding: 10px 12px;
+
+            }
+
+
+            .floating-icon {
+
+                width: 34px;
+
+                height: 34px;
+
+            }
+
+
+            .contact-form {
+
+                padding: 22px;
+
+            }
+
+        }
+    </style>
+
 </head>
-<body data-spy="scroll" data-target=".fixed-top">
-    
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+
+
+<body>
+
+
+
+    <!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg main-navbar">
+
         <div class="container">
-            
-            <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a>  
 
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Mark</a> -->
 
-            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="#home">
+                Saif<span>.</span>
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+
+                <i class="fas fa-bars text-white"></i>
+
             </button>
 
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+
+
                 <ul class="navbar-nav ml-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#home">
+                            Home
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#about">About</a>
+                        <a class="nav-link" href="#about">
+                            About
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#services">Services</a>
+                        <a class="nav-link" href="#services">
+                            Services
+                        </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Drop</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item page-scroll" href="project.html">Project Details</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="terms.html">Terms Conditions</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="privacy.html">Privacy Policy</a>
-                        </div>
-                    </li>
+
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                        <a class="nav-link" href="#skills">
+                            Skills
+                        </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
                 </ul>
-                <span class="nav-item social-icons">
-                    <span class="fa-stack">
-                        <a href="#your-link">
-                            <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fab fa-facebook-f fa-stack-1x"></i>
-                        </a>
-                    </span>
-                    <span class="fa-stack">
-                        <a href="#your-link">
-                            <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fab fa-twitter fa-stack-1x"></i>
-                        </a>
-                    </span>
+
+
+                <div class="nav-social">
+
+                    <a href="https://github.com/saiflaravel" target="_blank" aria-label="GitHub">
+
+                        <i class="fab fa-github"></i>
+
+                    </a>
+
+
+                    <a href="https://www.linkedin.com/in/saif-ur-rehman-234589387/" target="_blank"
+                        aria-label="LinkedIn">
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+     HERO
+====================================================== -->
+
+    <section id="home" class="hero">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+
+                <!-- LEFT -->
+
+                <div class="col-lg-7">
+
+                    <div class="hero-content">
+
+
+                        <div class="hero-badge">
+
+                            <span></span>
+
+                            Available for Junior Opportunities
+
+                        </div>
+
+
+                        <h1>
+
+                            Hi, I'm
+
+                            <span>
+                                Saif Ur Rehman
+                            </span>
+
+                        </h1>
+
+
+                        <h2>
+                            Junior Laravel Developer
+                        </h2>
+
+
+                        <p class="hero-description">
+
+                            I build responsive websites and dynamic web
+                            applications using PHP, Laravel, MySQL,
+                            HTML, CSS, Bootstrap and JavaScript. I am
+                            continuously improving my development skills
+                            through practical projects.
+
+                        </p>
+
+
+                        <div class="hero-buttons">
+
+                            <a href="#projects" class="btn-primary-custom">
+
+                                <i class="fas fa-code"></i>
+
+                                View My Projects
+
+                            </a>
+
+
+                            <a href="#contact" class="btn-secondary-custom">
+
+                                <i class="fas fa-paper-plane"></i>
+
+                                Contact Me
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT IMAGE -->
+
+                <div class="col-lg-5">
+
+                    <div class="hero-image-area">
+
+
+                        <div class="hero-image-wrapper">
+                            <img class="hero-image" src="1aa83d74-33dc-43b1-8836-3adaa626c760.png" alt="Saif Ur Rehman">
+
+
+                            <div class="floating-card">
+
+                                <div class="floating-icon">
+
+                                    <i class="fab fa-laravel"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        PHP & Laravel
+                                    </strong>
+
+                                    <small>
+                                        Web Development
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     ABOUT
+====================================================== -->
+
+    <section id="about" class="about-section section-padding">
+
+        <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span class="section-label">
+                    About Me
                 </span>
-            </div> <!-- end of navbar-collapse -->
-        </div> <!-- end of container -->
-    </nav> <!-- end of navbar -->
-    <!-- end of navigation -->
+
+                <h2>
+                    A Developer Who Loves Building
+                </h2>
+
+                <p>
+                    I am focused on learning modern web development
+                    and building practical applications with Laravel.
+                </p>
+
+            </div>
 
 
-    <!-- Header -->
-    <header id="header" class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h1 class="h1-large">I love to create beautiful and efficient websites</h1>
-                        <a class="btn-solid-lg page-scroll" href="#about">Discover</a>
-                        <a class="btn-outline-lg page-scroll" href="#contact"><i class="fas fa-user"></i>Contact Me</a>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
+            <div class="row align-items-center">
 
 
-    <!-- About-->
-    <div id="about" class="basic-1 bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="text-container first">
-                        <h2>Hi there I'm Mark,</h2>
-                        <p>And I love to create beautiful and efficient websites for my customers. I love going through the entire process with the customer from concept, to design and then development and launch</p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container second">
-                        <div class="time">2019 - PRESENT</div>
-                        <h6>Freelance Web Developer</h6>
-                        <p>Working happily on my own web projects</p>
-                        <div class="time">2018 - 2019</div>
-                        <h6>Lead Web Developer</h6>
-                        <p>Beautiful project for a major digital agency</p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container third">
-                        <div class="time">2017 - 2018</div>
-                        <h6>Senior Web Designer</h6>
-                        <p>Inhouse web designer for ecommerce firm</p>
-                        <div class="time">2016 - 2017</div>
-                        <h6>Junior Web Designer</h6>
-                        <p>Junior web designer for small web agency</p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-1 -->
-    <!-- end of about -->
+                <!-- ABOUT TEXT -->
+
+                <div class="col-lg-5">
+
+                    <div class="about-text">
+
+                        <h3>
+                            My Development Journey
+                        </h3>
 
 
-    <!-- Services -->
-    <div id="services" class="basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">Offered services</h2>
-                    <p class="p-heading">Web design and development have been my bread and butter for more than 5 years. During that time I've discovered that I can help startups and companies with the following services</p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="text-box">
-                        <i class="far fa-gem"></i>
-                        <h4>DESIGN</h4>
-                        <p>Successful online projects start with good design. It establishes a solid foundation for future development and allows for long term growth</p>
-                    </div> <!-- end of text-box -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-box">
-                        <i class="fas fa-code"></i>
-                        <h4>DEVELOPMENT</h4>
-                        <p>I can code my own designs or even use the customer's design as base. My focus is to generate clean code that's well structured for reliability</p>
-                    </div> <!-- end of text-box -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-box">
-                        <i class="fas fa-tv"></i>
-                        <h4>BASIC SEO</h4>
-                        <p>i can setup your project to use basic SEO principles which will push your project to the first page on search engines and save you ads money</p>
-                    </div> <!-- end of text-box -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-2 -->
-    <!-- end of services -->
+                        <p>
+
+                            I started learning Web Development in 2025
+                            and have been developing practical websites
+                            and web applications to improve my programming
+                            and backend development skills.
+
+                        </p>
 
 
-    <!-- Details -->
-	<div class="split">
-		<div class="area-1">
-		</div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2 bg-gray">
-            <div class="container">    
-                <div class="row">
-                    <div class="col-lg-12">     
-                        
-                        <!-- Text Container -->
-                        <div class="text-container">
-                            <h2>Why Work With Me</h2>
-                            <p>I am a great communicator and love to invest the necessary time to understand the customer's problem very well</p>
-                            <h5>DESIGN TOOLS</h5>
-                            <p>My favorite design tools are Photoshop and Illustrator but I can create designs in Figma, Sketch and Adobe XD too</p>
-                            <h5>DEVELOPMENT SKILLS</h5>
-                            <p>I am familiar and work on a daily basis with HTML, CSS, JavaScript, Bootstrap and other modern frameworks</p>
-                            
-                            <div class="icons-container">
-                                <img src="images/details-icon-photoshop.png" alt="alternative">
-                                <img src="images/details-icon-illustrator.png" alt="alternative">
-                                <img src="images/details-icon-html.png" alt="alternative">
-                                <img src="images/details-icon-css.png" alt="alternative">
-                                <img src="images/details-icon-bootstrap.png" alt="alternative">
-                                <img src="images/details-icon-javascript.png" alt="alternative">
-                            </div> <!-- end of icons-container -->
-                        </div> <!-- end of text-container -->
-                        <!-- end of text container -->
+                        <p>
 
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-		</div> <!-- end of area-2 -->
-    </div> <!-- end of split -->
-    <!-- end of details -->
+                            My main area of interest is PHP and Laravel.
+                            I enjoy working with backend functionality,
+                            databases, CRUD systems and responsive
+                            frontend interfaces.
 
+                        </p>
 
-    <!-- Projects -->
-    <div id="projects" class="basic-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">Delivered projects</h2>
-                    <p class="p-heading">Listed below are some of the most representative projects I've worked on. They range from basic web design for presentation sites to advanced web development for online shops</p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/project-1.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Jumbotron, <strong>Project:</strong> web design for their corporate websites and landing pages for marketing campaigns <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/project-2.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Carsrepo, <strong>Project:</strong> designed and developed modern platform for purchasing second hand cars online <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/project-3.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Truevideo, <strong>Project:</strong> created a custom video editing and upload web app for this awesome team <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/project-4.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Evolosim, <strong>Project:</strong> complete redesign of their corporate website and platform update for their online shop <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of projects -->
-
-
-    <!-- Works -->
-    <div class="basic-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/work-1.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Zigoland, <strong>Project:</strong> started a new website from ground up for a new product <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/work-2.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Visodream, <strong>Project:</strong> developed a new forum for the Visodream community <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/work-3.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Primoday, <strong>Project:</strong> complete redesign of their corporate website and platform <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/work-4.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Nextlite, <strong>Project:</strong> created a custom video editing and upload web app <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/work-5.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Syncnow, <strong>Project:</strong> web design for their corporate websites and landing pages <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/work-6.jpg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>For:</strong> Shifter, <strong>Project:</strong> started a new website from ground up for a new product <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-4 -->
-    <!-- end of works -->
-
-
-    <!-- Testimonials -->
-    <div class="cards-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">A few words from people that chose to work with me</h2>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="testimonial-text">“Mark is a skilled developer which will do everything possible to deliver the project on time and I really appreciate that”</p>
-                            <div class="details">
-                                <img src="images/testimonial-1.jpg" alt="alternative">
-                                <div class="text">
-                                    <div class="testimonial-author">Samantha Bloom</div>
-                                    <div class="occupation">Team Leader - Syncnow</div>
-                                </div> <!-- end of text -->
-                            </div> <!-- end of testimonial-details -->
-                        </div>
                     </div>
-                    <!-- end of card -->
 
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="testimonial-text">“Loved to work with Mark he's such an awesome developer with great attention to details. He also has a great eye for design”</p>
-                            <div class="details">
-                                <img src="images/testimonial-2.jpg" alt="alternative">
-                                <div class="text">
-                                    <div class="testimonial-author">John Rowling</div>
-                                    <div class="occupation">Marketing Manager - Nexlite</div>
-                                </div> <!-- end of text -->
-                            </div> <!-- end of testimonial-details -->
+                </div>
+
+
+
+                <!-- EDUCATION -->
+
+                <div class="col-lg-7">
+
+                    <div class="about-card">
+
+
+                        <div class="about-card-icon">
+
+                            <i class="fas fa-graduation-cap"></i>
+
                         </div>
+
+
+                        <h4>
+                            Education & Learning
+                        </h4>
+
+
+                        <div class="education-item">
+
+                            <div class="education-year">
+                                2025 - Present
+                            </div>
+
+                            <h5>
+                                BS Software Engineering
+                            </h5>
+
+                            <p>
+                                Superior University, Pakistan
+                            </p>
+
+                        </div>
+
+
+                        <div class="education-item">
+
+                            <div class="education-year">
+                                2025
+                            </div>
+
+                            <h5>
+                                Intermediate / 12th Class
+                            </h5>
+
+                            <p>
+                                Superior College, Sargodha
+                            </p>
+
+                        </div>
+
+
+                        <div class="education-item">
+
+                            <div class="education-year">
+                                2025 - Present
+                            </div>
+
+                            <h5>
+                                Web Development
+                            </h5>
+
+                            <p>
+                                Practical learning in PHP, Laravel,
+                                MySQL, HTML, CSS, Bootstrap and JavaScript.
+                            </p>
+
+                        </div>
+
+
                     </div>
-                    <!-- end of card -->
 
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="testimonial-text">“So glad we started working with Mark. We've used many times his design and development skills for our inhouse online projects”</p>
-                            <div class="details">
-                                <img src="images/testimonial-3.jpg" alt="alternative">
-                                <div class="text">
-                                    <div class="testimonial-author">Lana Smith</div>
-                                    <div class="occupation">General Manager - Shifter</div>
-                                </div> <!-- end of text -->
-                            </div> <!-- end of testimonial-details -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     SERVICES
+====================================================== -->
+
+    <section id="services" class="services-section section-padding">
+
+        <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span class="section-label">
+                    What I Do
+                </span>
+
+                <h2>
+                    My Services
+                </h2>
+
+                <p>
+                    I develop responsive frontend interfaces and
+                    dynamic backend applications using PHP and Laravel.
+                </p>
+
+            </div>
+
+
+            <div class="row services-row">
+
+
+                <!-- SERVICE 1 -->
+
+                <div class="col-lg-4 col-md-6 service-column">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+
+                            <i class="fas fa-laptop-code"></i>
+
                         </div>
+
+
+                        <h4>
+                            Frontend Development
+                        </h4>
+
+
+                        <p>
+
+                            I create clean and responsive websites
+                            using HTML, CSS, Bootstrap and JavaScript.
+                            My focus is on simple layouts, usability
+                            and mobile-friendly design.
+
+                        </p>
+
                     </div>
-                    <!-- end of card -->
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
-    <!-- end of testimonials -->
+                </div>
 
 
-    <!-- Section Divider -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <hr class="section-divider">
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of container -->
-    <!-- end of section divider -->
 
+                <!-- SERVICE 2 -->
 
-    <!-- Questions -->
-    <div class="accordion-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">Frequent questions</h2>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-4 col-md-6 service-column">
 
-                    <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How can I contact you and quickly get a quote for my online project?
-                                </button>
-                            </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
+                    <div class="service-card">
+
+                        <div class="service-icon">
+
+                            <i class="fab fa-laravel"></i>
+
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Do you create designs from the ground up or you are using themes?
-                                </button>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Will I receive any included maintenance or warranty after project delivery?
-                                </button>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFour">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    If something goes wrong with the project can I have my money back?
-                                </button>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFive">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    What's your preferred method of payment and do you need an advance?
-                                </button>
-                            </div>
-                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end of accordion -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of accordion-1 -->
-    <!-- end of questions -->
 
 
-    <!-- Contact -->
-    <div id="contact" class="form-1 bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Contact details</h2>
-                    <p class="p-heading">For any type of online project please don't hesitate to get in touch with me. The fastest way is to send me your message using the following email <a class="blue no-line" href="#your-link">contact@domain.com</a></p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <!-- Contact Form -->
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" required>
-                            <label class="label-control" for="cname">Name</label>
+                        <h4>
+                            Laravel Development
+                        </h4>
+
+
+                        <p>
+
+                            I build dynamic Laravel applications using
+                            MVC architecture, routing, controllers,
+                            Blade templates, authentication and CRUD
+                            functionality.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SERVICE 3 -->
+
+                <div class="col-lg-4 col-md-6 service-column">
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+
+                            <i class="fas fa-database"></i>
+
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" required>
-                            <label class="label-control" for="cemail">Email</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
-                            <label class="label-control" for="cmessage">Project details</label>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">Submit</button>
-                        </div>
-                    </form>
-                    <!-- end of contact form -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of form-1 -->  
-    <!-- end of contact -->
 
 
-    <!-- Footer -->
-    <div class="footer bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="social-container">
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-facebook-f fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-youtube fa-stack-1x"></i>
-                            </a>
-                        </span>
-                    </div> <!-- end of social-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of footer -->  
-    <!-- end of footer -->
+                        <h4>
+                            PHP & MySQL
+                        </h4>
 
 
-    <!-- Copyright -->
-    <div class="copyright bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="p-small">Copyright © <a class="no-line" href="#your-link">Your name</a></p>
-                </div> <!-- end of col -->
-            </div> <!-- enf of row -->
-        </div> <!-- end of container -->
+                        <p>
+
+                            I develop database-driven applications using
+                            PHP and MySQL, including data management,
+                            database integration and backend functionality.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     SKILLS
+====================================================== -->
+
+    <section id="skills" class="skills-section section-padding">
 
         <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span class="section-label">
+                    My Expertise
+                </span>
+
+                <h2>
+                    Technical Skills
+                </h2>
+
+                <p>
+                    Technologies and tools I currently use while
+                    learning and developing practical web applications.
+                </p>
+
+            </div>
+
+
             <div class="row">
-                <div class="col-lg-12">
-                    <p class="p-small">Distributed By <a class="no-line" href="https://themewagon.com/">Themewagon</a></p>
-                </div> <!-- end of col -->
-            </div> <!-- enf of row -->
-        </div> <!-- end of container -->
-        
-    </div> <!-- end of copyright --> 
-    <!-- end of copyright -->
-    
-    	
-    <!-- Scripts -->
-    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+
+
+                <!-- FRONTEND -->
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="skill-card">
+
+                        <h4>
+                            Frontend Development
+                        </h4>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>HTML</span>
+
+                                <span>90%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:90%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>CSS</span>
+
+                                <span>85%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:85%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>Bootstrap</span>
+
+                                <span>85%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:85%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>JavaScript</span>
+
+                                <span>70%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:70%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BACKEND -->
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="skill-card">
+
+                        <h4>
+                            Backend Development
+                        </h4>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>PHP</span>
+
+                                <span>80%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:80%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>Laravel</span>
+
+                                <span>80%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:80%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>MVC & Routing</span>
+
+                                <span>75%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:75%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>Blade & CRUD</span>
+
+                                <span>75%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:75%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DATABASE -->
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="skill-card">
+
+                        <h4>
+                            Database & Development
+                        </h4>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>MySQL</span>
+
+                                <span>80%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:80%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>Authentication</span>
+
+                                <span>70%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:70%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>Database Integration</span>
+
+                                <span>75%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:75%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-top">
+
+                                <span>Responsive Design</span>
+
+                                <span>85%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div class="skill-progress" style="width:85%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     PROJECTS
+====================================================== -->
+
+    <section id="projects" class="projects-section section-padding">
+
+        <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span class="section-label">
+                    My Work
+                </span>
+
+                <h2>
+                    Featured Projects
+                </h2>
+
+                <p>
+                    Some practical projects I have built while learning
+                    Laravel, PHP, MySQL and modern web development.
+                </p>
+
+            </div>
+
+            <!-- Row 1 -->
+            <div class="row">
+
+
+                <!-- PROJECT 1 -->
+
+                <div class="col-lg-6 col-md-6 project-column">
+
+                    <div class="project-card">
+
+
+                        <div class="project-image">
+
+                            <img src="image.png" alt="Laravel Web Application">
+
+                        </div>
+
+
+                        <div class="project-content">
+
+
+                            <div class="project-number">
+                                Sofa Hub E Comerace
+                            </div>
+
+
+                            <h4>
+                                Sofa E-Commerce Store
+                            </h4>
+
+
+                            <p>
+
+                            <p>
+                                A Laravel-based sofa e-commerce store developed with PHP and MySQL.
+                                The project includes sofa product listings, categories, product
+                                details, shopping cart functionality and a responsive user-friendly
+                                shopping interface.
+                            </p>
+
+                            </p>
+
+
+                            <div class="tech-tags">
+
+                                <span class="tech-tag">
+                                    PHP
+                                </span>
+
+                                <span class="tech-tag">
+                                    Laravel
+                                </span>
+
+                                <span class="tech-tag">
+                                    MySQL
+                                </span>
+
+                                <span class="tech-tag">
+                                    Bootstrap
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="col-lg-6 col-md-6 project-column">
+
+                    <div class="project-card">
+
+
+                        <div class="project-image">
+
+                            <img src="Capture.PNG" alt="E-Commerce Website">
+
+                        </div>
+
+
+                        <div class="project-content">
+
+
+                            <div class="project-number">
+                                Fast Food
+                            </div>
+
+
+                            <h4>
+                                Fast Food E-Commerce Website
+                            </h4>
+
+
+                            <p>
+
+                            <p>
+                                A fast food e-commerce website built with Laravel, PHP and MySQL.
+                                The project includes food products, categories, product details,
+                                shopping cart functionality and a responsive user-friendly design.
+                            </p>
+
+                            </p>
+
+
+                            <div class="tech-tags">
+
+                                <span class="tech-tag">
+                                    Laravel
+                                </span>
+
+                                <span class="tech-tag">
+                                    PHP
+                                </span>
+
+                                <span class="tech-tag">
+                                    MySQL
+                                </span>
+
+                                <span class="tech-tag">
+                                    Bootstrap
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Row 2 -->
+            <div class="row">
+
+
+                <!-- PROJECT 3 -->
+
+                <div class="col-lg-6 col-md-6 project-column">
+
+                    <div class="project-card">
+
+
+                        <div class="project-image">
+
+                            <img src="vegetable.PNG" alt="Laravel Web Application">
+
+                        </div>
+
+
+                        <div class="project-content">
+
+
+                            <div class="project-number">
+                                Fruitables E Comerace
+                            </div>
+
+
+                            <h4>
+                                Vegetable & Fruit E-Commerce Website
+                            </h4>
+
+
+                            <p>
+
+                            <p>
+                            <p>
+                                A Laravel-based vegetable and fruit e-commerce website developed
+                                with PHP and MySQL. The project includes fresh fruit and vegetable
+                                listings, categories, product details, shopping cart functionality
+                                and a responsive user-friendly shopping interface.
+                            </p>
+                            </p>
+
+                            </p>
+
+
+                            <div class="tech-tags">
+
+                                <span class="tech-tag">
+                                    PHP
+                                </span>
+
+                                <span class="tech-tag">
+                                    Laravel
+                                </span>
+
+                                <span class="tech-tag">
+                                    MySQL
+                                </span>
+
+                                <span class="tech-tag">
+                                    Bootstrap
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     WHY ME
+====================================================== -->
+
+    <section class="why-section section-padding">
+
+        <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span class="section-label">
+                    My Approach
+                </span>
+
+                <h2>
+                    What I Bring
+                </h2>
+
+                <p>
+                    My focus is on practical development, continuous
+                    learning and writing clean understandable code.
+                </p>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fas fa-code"></i>
+
+                        </div>
+
+
+                        <h4>
+                            Clean Development
+                        </h4>
+
+
+                        <p>
+
+                            I focus on organized code and Laravel's
+                            MVC structure to keep applications easier
+                            to understand and maintain.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fas fa-mobile-screen-button"></i>
+
+                        </div>
+
+
+                        <h4>
+                            Responsive Design
+                        </h4>
+
+
+                        <p>
+
+                            I create responsive interfaces that are
+                            designed to work across desktop, tablet
+                            and mobile devices.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="why-card">
+
+                        <div class="why-icon">
+
+                            <i class="fas fa-graduation-cap"></i>
+
+                        </div>
+
+
+                        <h4>
+                            Continuous Learning
+                        </h4>
+
+
+                        <p>
+
+                            As a Software Engineering student, I am
+                            continuously learning and improving my
+                            practical development skills.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     FAQ
+====================================================== -->
+
+    <section class="faq-section section-padding">
+
+        <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span class="section-label">
+                    FAQ
+                </span>
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+                <p>
+                    A few common questions about my development skills
+                    and the type of work I am interested in.
+                </p>
+
+            </div>
+
+
+            <div class="faq-wrapper">
+
+
+                <!-- FAQ 1 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question" data-toggle="collapse" data-target="#faq1" aria-expanded="true">
+
+                        What technologies do you work with?
+
+                    </button>
+
+
+                    <div id="faq1" class="collapse show">
+
+                        <div class="faq-answer">
+
+                            I currently work with HTML, CSS, Bootstrap,
+                            JavaScript, PHP, Laravel and MySQL.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 2 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question collapsed" data-toggle="collapse" data-target="#faq2"
+                        aria-expanded="false">
+
+                        What is your main development focus?
+
+                    </button>
+
+
+                    <div id="faq2" class="collapse">
+
+                        <div class="faq-answer">
+
+                            My main focus is PHP and Laravel backend
+                            development, database-driven applications,
+                            CRUD systems and responsive web interfaces.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 3 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question collapsed" data-toggle="collapse" data-target="#faq3"
+                        aria-expanded="false">
+
+                        Are you available for junior opportunities?
+
+                    </button>
+
+
+                    <div id="faq3" class="collapse">
+
+                        <div class="faq-answer">
+
+                            Yes. I am interested in junior Laravel,
+                            PHP and web development opportunities where
+                            I can contribute and continue learning.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 4 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question collapsed" data-toggle="collapse" data-target="#faq4"
+                        aria-expanded="false">
+
+                        What type of projects do you build?
+
+                    </button>
+
+
+                    <div id="faq4" class="collapse">
+
+                        <div class="faq-answer">
+
+                            I build Laravel web applications, CRUD systems,
+                            database-driven websites and e-commerce projects
+                            as part of my practical development work.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     CONTACT
+====================================================== -->
+
+    <section id="contact" class="contact-section section-padding">
+
+        <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span class="section-label">
+                    Get In Touch
+                </span>
+
+                <h2>
+                    Let's Work Together
+                </h2>
+
+                <p>
+                    Have a project, internship or junior developer
+                    opportunity? Feel free to get in touch.
+                </p>
+
+            </div>
+
+
+            <div class="row align-items-center">
+
+
+                <!-- CONTACT INFO -->
+
+                <div class="col-lg-5">
+
+                    <div class="contact-left">
+
+
+                        <h3>
+                            Let's Talk
+                        </h3>
+
+
+                        <p>
+
+                            I am interested in Laravel, PHP and web
+                            development opportunities. You can contact
+                            me to discuss a project or professional
+                            opportunity.
+
+                        </p>
+
+
+                        <div class="contact-info-item">
+
+                            <div class="contact-info-icon">
+
+                                <i class="fas fa-envelope"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Email
+                                </strong>
+
+                                <span>
+                                    saifsaifi4600@gmail.com
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-info-item">
+
+                            <div class="contact-info-icon">
+
+                                <i class="fas fa-phone-alt"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Phone Number
+                                </strong>
+
+                                <span>
+                                    0322-6431346
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-info-item">
+
+                            <div class="contact-info-icon">
+
+                                <i class="fas fa-map-marker-alt"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Address
+                                </strong>
+
+                                <span>
+                                    Sargodha, Pakistan
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FORM -->
+
+                <div class="col-lg-7">
+
+                    <div class="contact-form">
+
+
+                        <form action="#" method="POST">
+
+
+                            <label>
+                                Your Name
+                            </label>
+
+                            <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+
+
+                            <label>
+                                Email Address
+                            </label>
+
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                                required>
+
+
+                            <label>
+                                Message
+                            </label>
+
+                            <textarea name="message" class="form-control" placeholder="Write your message..."
+                                required></textarea>
+
+
+                            <button type="submit" class="contact-submit">
+
+                                <i class="fas fa-paper-plane mr-2"></i>
+
+                                SEND MESSAGE
+
+                            </button>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+
+            <div class="footer-logo">
+
+                Saif<span>.</span>
+
+            </div>
+
+
+            <p>
+
+                Junior Laravel Developer · PHP Web Developer ·
+                Software Engineering Student
+
+            </p>
+
+
+            <div class="footer-social">
+
+
+                <a href="https://github.com/saiflaravel" target="_blank">
+
+                    <i class="fab fa-github"></i>
+
+                </a>
+
+
+                <a href="https://www.linkedin.com/in/saif-ur-rehman-234589387/" target="_blank">
+
+                    <i class="fab fa-linkedin-in"></i>
+
+                </a>
+
+
+                <a href="#" target="_blank">
+
+                    <i class="fab fa-facebook-f"></i>
+
+                </a>
+
+
+                <a href="#" target="_blank">
+
+                    <i class="fab fa-instagram"></i>
+
+                </a>
+
+
+            </div>
+
+
+            <p class="copyright">
+
+                © 2026 Saif Ur Rehman. All Rights Reserved.
+
+            </p>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+     BACK TO TOP
+====================================================== -->
+
+    <button id="backToTop">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <script>
+
+
+        /* =====================================================
+           STICKY NAVBAR
+        ====================================================== */
+
+        $(window).on('scroll', function () {
+
+            if ($(window).scrollTop() > 50) {
+
+                $('#mainNavbar').addClass('scrolled');
+
+            } else {
+
+                $('#mainNavbar').removeClass('scrolled');
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           SMOOTH SCROLL
+        ====================================================== */
+
+        $('.nav-link, .navbar-brand, .btn-primary-custom, .btn-secondary-custom')
+            .on('click', function (e) {
+
+                if (this.hash !== "") {
+
+                    e.preventDefault();
+
+                    var target = this.hash;
+
+                    $('html, body').animate({
+
+                        scrollTop: $(target).offset().top - 70
+
+                    }, 700);
+
+                }
+
+            });
+
+
+
+        /* =====================================================
+           CLOSE MOBILE NAVBAR
+        ====================================================== */
+
+        $('.navbar-nav .nav-link').on('click', function () {
+
+            $('.navbar-collapse').collapse('hide');
+
+        });
+
+
+
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        $(window).on('scroll', function () {
+
+            if ($(window).scrollTop() > 500) {
+
+                $('#backToTop').css('display', 'flex');
+
+            } else {
+
+                $('#backToTop').hide();
+
+            }
+
+        });
+
+
+        $('#backToTop').on('click', function () {
+
+            $('html, body').animate({
+
+                scrollTop: 0
+
+            }, 600);
+
+        });
+
+
+    </script>
+
+
 </body>
+
 </html>
